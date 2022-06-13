@@ -37,8 +37,23 @@ def solution_2(clothes):
 
     return answer-1
 
+##외부 라이브러리 함수 길이로 수행
+from collections import defaultdict
+def solution_3(clothes):
+    answer = 1
+    hash=defaultdict(int) #기본값으로 value값을 list로 선언
+    for c,t in clothes:
+        hash[t]+=1 # key 존재빼고 바로 삽입할 수 있음
+
+    for key in hash:
+        answer*=(hash[key]+1)
+
+    return answer-1
+
 
 if __name__=='__main__':
-    clothes=[["crowmask", "face"], ["bluesunglasses", "face"], ["smoky_makeup", "face"]]
+    #clothes=[["crowmask", "face"], ["bluesunglasses", "face"], ["smoky_makeup", "face"]]
+    clothes=[["yellowhat", "headgear"], ["bluesunglasses", "eyewear"], ["green_turban", "headgear"]]
     print(solution(clothes))
-    print(solution_2(clothes))
+    print(solution_3(clothes))
+
